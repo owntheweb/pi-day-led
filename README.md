@@ -5,6 +5,7 @@ Celebrate Pi Day with a Raspberry Pi scrolling LED display utilizing Node.js, Ba
 Features include
 - Layered text and background effects
 - YAML configuration
+- HTML5 Canvas utilization for extra creative options
 - A starting point when pondering scalable LED sign deployment solutions
 
 Text features:
