@@ -1,0 +1,27 @@
+{
+  "name": "pi-day-led",
+  "version": "0.1.0",
+  "description": "It's Pi Day! It's Pi Day! This sign was created to celebrate Pi Day, increase RxJs knowledge and have fun.",
+  "start": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "pi",
+    "day",
+    "led",
+    "sign"
+  ],
+  "author": "Christopher L. Stevens",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.4.0",
+    "easybotics-rpi-rgb-led-matrix": "^0.2.0",
+    "jetty": "^0.2.0",
+    "js-yaml": "^3.13.0",
+    "moment-holiday": "^1.5.0",
+    "rxjs": "^6.4.0",
+    "terminal-image": "^0.1.0"
+  }
+}

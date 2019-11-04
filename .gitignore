@@ -1,0 +1,6 @@
+simple-server-node
+.#*
+*.log
+node_modules/
+.DS_Store
+*.ttf
