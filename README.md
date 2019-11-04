@@ -1,6 +1,6 @@
 # Pi Day LED Display
 
-To Celebrate Pi Day (and to brush up on RxJs and ES6), create a Raspberry Pi scrolling LED display utilizing Node.js, Balena.io and RxJs.
+To Celebrate Pi Day with a Raspberry Pi scrolling LED display utilizing Node.js, Balena.io and RxJs.
 
 Features include
 - Layered text and background effects
