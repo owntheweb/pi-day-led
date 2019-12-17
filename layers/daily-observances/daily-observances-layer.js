@@ -5,29 +5,33 @@
 
 const { ScrollingTextLayer } = require('../scrolling-text-layer');
 const moment = require('moment-holiday');
-const observances = require('./daily-observances-dates');
+const { us: unitedStatesObservances } = require('./daily-observances-us');
+const { un: unitedNationsObservances } = require('./daily-observances-un');
+const { unofficial: unofficialObservances } = require('./daily-observances-unofficial');
 
 class DailyObservancesLayer extends ScrollingTextLayer {
 
-  // TODO: This currently shows official US holidays, national observances, international observances and unofficial.
-  // It would be nice for others to be able to configure what to show (I currently want them all, todo, categorized though)
   constructor(config) {        
     super(config);
-    this.addAllHolidays();
+    this.addHolidays();
     this.fallbackText = this.config.hasOwnProperty('text') ? this.config.text : 'There are no observances today. What is up with that?!';
     this.text = moment().isHoliday() ? this.holidayString() : this.fallbackText;
+    this.textMeasurement = this.ctx.measureText(this.text);
   }
 
-  // add them all for now
-  addAllHolidays() {
-    for (let category in observances) {
-      moment.modifyHolidays.add(observances[category]);
-    }
+  // add all observances for now
+  // TODO: This currently shows official US holidays, national observances, United Nations observances and unofficial.
+  // It would be nice for others to be able to configure what to show (I currently want them all, todo, categorized though)
+  // TODO: Loading as many holidays as there are here every time is creating lag before starting. Consider optimization.
+  addHolidays() {
+    moment.modifyHolidays.add(unitedStatesObservances);
+    moment.modifyHolidays.add(unitedNationsObservances);
+    moment.modifyHolidays.add(unofficialObservances);
   }
 
-  // contatinate potentially multiple holidays into a single string
+  // concatenate potentially multiple holidays into a single string
   holidayString() {
-    const holidays = moment().isHoliday().join(' and ');
+    const holidays = moment().isHoliday().join(', and ');
     return `Today we celebrate: ${holidays}`;
   }
 }

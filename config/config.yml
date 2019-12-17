@@ -10,12 +10,12 @@ ledMatrix:
   frameRate: 24
 scenes: 
   - layers:
+    - type: Fill
+      color: "#000000"
+      seconds: 1
+  - layers:
     - type: Fireworks
       rate: 1
-      colors:
-        - "#0000ff"
-        - "#ffffff"
-        - "#ff0000"
     - type: DailyObservances
       text: "There are no daily observances today. What's up with that?!"
       fillStyle: "#ffffff"
@@ -28,10 +28,19 @@ scenes:
       color: "#ffad33"
       backgroundColor: "#120a00"
     - type: ScrollingText
-      text: "This day in history: At least one thing interesting happened. Stay tuned for a future epic historical update."
+      text: "This day in history: Something of great significance happened."
       fillStyle: "#ffd699"
       size: 16
       font: Rainy Hearts
+      speed: 1
+  - layers:
+    - type: Fill
+      color: "#000000"
+    - type: ScrollingText
+      text: "All connected systems are online. For security purposes, there are 0 connected systems."
+      fillStyle: "#66ff66"
+      size: 16
+      font: Pixel Operator
       speed: 1
   - layers:
     - type: Glitter

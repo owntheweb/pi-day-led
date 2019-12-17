@@ -10,9 +10,9 @@ class ScrollingTextLayer extends Layer {
         this.ctx.font = this.config.size + 'px "' + this.config.font + '"';
         this.x = this.config.canvasWidth + 20;
         this.y = this.config.canvasHeight - Math.floor(this.config.size * 0.25);
-        this.textMeasurement = this.ctx.measureText(this.config.text);
         this.loops = this.config.hasOwnProperty('loops') ? this.config.loops : 0;
         this.text = this.config.hasOwnProperty('text') ? this.config.text : 'No text to scroll was specified. Have a nice day!';
+        this.textMeasurement = this.ctx.measureText(this.text);
     };
 
     getFrame() {
