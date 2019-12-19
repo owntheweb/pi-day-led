@@ -8,7 +8,6 @@ class FillLayer extends Layer {
         super(config);
     };
 
-    // TODO: only update the canvas if there's a fill change?
     getFrame() {
         this.frameInt++;
         // only render canvas once

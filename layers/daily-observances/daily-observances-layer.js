@@ -22,17 +22,21 @@ class DailyObservancesLayer extends ScrollingTextLayer {
   // add all observances for now
   // TODO: This currently shows official US holidays, national observances, United Nations observances and unofficial.
   // It would be nice for others to be able to configure what to show (I currently want them all, todo, categorized though)
-  // TODO: Loading as many holidays as there are here every time is creating lag before starting. Consider optimization.
   addHolidays() {
-    moment.modifyHolidays.add(unitedStatesObservances);
-    moment.modifyHolidays.add(unitedNationsObservances);
-    moment.modifyHolidays.add(unofficialObservances);
+    // get month name, used as key to add a smaller subset of holidays to moment (much lag otherwise)
+    const date = new Date();
+    const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
+    
+    // add holiday sets to moment
+    moment.modifyHolidays.add(unitedStatesObservances[month]);
+    moment.modifyHolidays.add(unitedNationsObservances[month]);
+    moment.modifyHolidays.add(unofficialObservances[month]);
   }
 
   // concatenate potentially multiple holidays into a single string
   holidayString() {
-    const holidays = moment().isHoliday().join(', and ');
-    return `Today we celebrate: ${holidays}`;
+    const holidays = moment().isHoliday().join(', ');
+    return `Today: ${holidays}`;
   }
 }
 
