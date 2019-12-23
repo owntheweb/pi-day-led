@@ -15,7 +15,7 @@ class DailyObservancesLayer extends ScrollingTextLayer {
     super(config);
     this.addHolidays();
     this.fallbackText = this.config.hasOwnProperty('text') ? this.config.text : 'There are no observances today. What is up with that?!';
-    this.text = moment().isHoliday() ? this.holidayString() : this.fallbackText;
+    this.text = this.holidayString();
     this.textMeasurement = this.ctx.measureText(this.text);
   }
 
@@ -33,10 +33,14 @@ class DailyObservancesLayer extends ScrollingTextLayer {
     moment.modifyHolidays.add(unofficialObservances[month]);
   }
 
-  // concatenate potentially multiple holidays into a single string
+  // Get the holiday message string
   holidayString() {
-    const holidays = moment().isHoliday().join(', ');
-    return `Today: ${holidays}`;
+    // moment().isHoliday() Returns the name of a single holiday as a string, or array of holiday strings, or false if no holidays (hghhgmm).
+    const holidays = moment().isHoliday();
+    if (holidays) {
+      return typeof holidays === 'string' ? `Today: ${holidays}` : `Today: ${holidays.join(', ')}`;
+    }
+    return this.fallbackText;
   }
 }
 

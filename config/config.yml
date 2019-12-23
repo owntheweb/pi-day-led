@@ -7,7 +7,7 @@ ledMatrix:
   chainedDisplays: 1
   parallelDisplays: 2
   hardwareMapping: adafruit-hat-pwm
-  frameRate: 24
+  frameRate: 35
 scenes: 
   - layers:
     - type: Fireworks
