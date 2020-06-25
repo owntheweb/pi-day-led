@@ -17,9 +17,6 @@ class Layer {
         
         this.suffixDelay = this.config.hasOwnProperty('suffixDelay') ? this.config.suffixDelay : 0;
 
-        // TODO: .0001 is temp fix for division of 0, make math better
-        // this.prefixDelayFrames = Math.floor((this.prefixDelay + .0001 * 1000) / (1000 / this.config.frameRate));
-        // this.suffixDelayFrames = Math.floor((this.suffixDelay + .0001 * 1000) / (1000 / this.config.frameRate));
         this.showForTimeout = this.config.hasOwnProperty('seconds') ? this.showFor(this.config.seconds) : null;
     };
 
@@ -50,13 +47,14 @@ class Layer {
     // get a frame of the animation
     getFrame() {
         this.frameInt++;
-        for (let x = 0; x < this.canvas.width; x++) {
-            for (let y = 0; y < this.canvas.height; y++) {
-                // 16777215 = decimal value of white
-                this.ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
-                this.ctx.fillRect(x, y, 1, 1);
-            }
-         }
+        // only render canvas once for this starter example (other layer types will override this)
+        if(this.frameInt <= 0) {
+            this.ctx.beginPath();
+            this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
+            // 16777215 = decimal value of white
+            this.ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            this.ctx.fill();
+        }
         return this.canvas;
     }
 

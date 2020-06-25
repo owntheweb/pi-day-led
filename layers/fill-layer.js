@@ -13,7 +13,7 @@ class FillLayer extends Layer {
         // only render canvas once
         if(this.frameInt <= 0) {
             this.ctx.beginPath();
-            this.ctx.rect(0, 0, this.config.canvasWidth, this.config.canvasHeight);
+            this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
             this.ctx.fillStyle = this.config.fillStyle;
             this.ctx.fill();
         }

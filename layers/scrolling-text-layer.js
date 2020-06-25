@@ -18,7 +18,7 @@ class ScrollingTextLayer extends Layer {
     getFrame() {
         this.frameInt++;
         this.x -= this.config.speed;
-        this.ctx.clearRect(0, 0, this.config.canvasWidth, this.config.canvasHeight);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.fillText(this.text, this.x, this.y);
 
         if (this.x < -this.textMeasurement.width - 20) {
@@ -26,7 +26,7 @@ class ScrollingTextLayer extends Layer {
             if (this.loops < 0) {
                 this.completeEvent();
             } else {
-                this.x = this.config.canvasWidth + 20;
+                this.x = this.canvas.width + 20;
             }
         }
         return this.canvas;

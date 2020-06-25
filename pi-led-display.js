@@ -1,4 +1,3 @@
-// TODO: scene transitions (we'll start without)
 const { Scheduler, interval, Subscriber, merge, Observable } = require('rxjs');
 const { take, scan, flatMap } = require('rxjs/operators');
 const LedMatrix = require('easybotics-rpi-rgb-led-matrix');
@@ -218,7 +217,6 @@ class PiLedDisplay {
     }
 
     // control animation frame rate
-    // NOTE: Immutable guide https://manu.ninja/game-loop-with-rxjs-5-immutable-js (although this actually seems much slower on server side canvas, not applicable here perhaps)
     startAnimationClock() {
         const state = {
             prevFrameTime: performance.now(),
