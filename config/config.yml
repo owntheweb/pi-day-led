@@ -11,7 +11,7 @@ ledMatrix:
 scenes:
   - layers:
     - type: Fireworks
-      rate: 1
+      rate: 5
       colors:
         - "#9000ff"
         - "#6600ff"

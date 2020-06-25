@@ -12,6 +12,7 @@ Features include
 
 Text features:
 - Customizable scrolling text (color, scroll speed, font)
+- Customizable still text (color, alignment, padding, font)
 - USA and NATO holidays/daily observances
 
 Background effects:
