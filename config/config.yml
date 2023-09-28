@@ -1,47 +1,14 @@
 # output: console or pi: console will mock missing pi hardware and output image to terminal
 output: pi
 ledMatrix:
-  rows: 16
-  columns: 32
-  brightness: 100
-  chainedDisplays: 1
-  parallelDisplays: 4
-  hardwareMapping: adafruit-hat-pwm
-  frameRate: 35
+    rows: 16
+    columns: 32
+    brightness: 100
+    chainedDisplays: 1
+    parallelDisplays: 4
+    hardwareMapping: adafruit-hat-pwm
+    frameRate: 35
 scenes:
-  - layers:
-      - type: Fireworks
-        rate: 5
-        colors:
-          - "#9000ff"
-          - "#6600ff"
-          - "#3000ff"
-          - "#c000ff"
-      - type: StillText
-        text: "Hello Awesome!"
-        fillStyle: "#ffffff"
-        size: 16
-        font: Rainy Hearts
-        align: left
-        padding: 8
-        seconds: 12
-  - layers:
-      - type: Fireworks
-        rate: 1
-      - type: DailyObservances
-        text: "There are no daily observances today. What's up with that?!"
-        fillStyle: "#ffffff"
-        size: 16
-        font: Pixel Operator
-        speed: 1
-  - layers:
-      - type: Glitter
-        rate: 5
-        color: "#ffffff"
-        backgroundColor: "#000029"
-      - type: ScrollingText
-        text: "Have a nice day!"
-        fillStyle: "#dbdbff"
-        size: 16
-        font: Pixellari
-        speed: 1
+    - layers:
+          - type: Lightning
+            seconds: 200
